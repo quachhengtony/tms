@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/subscribers")
+@RequestMapping
 public class SubscribersController {
     @Value("${messages.subscribe}")
     private String subscribeMessage;
@@ -19,7 +19,7 @@ public class SubscribersController {
         try {
             return new ResponseEntity<String>(subscribeMessage, HttpStatus.OK);
         } catch (Exception ex) {
-            return ResponseEntity.internalServerError().build();
+            return ResponseEntity.badRequest().build();
         }
     }
 }

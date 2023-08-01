@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.14</version>
+    <version>2.3.12.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.quachhengtony</groupId>
@@ -14,6 +14,7 @@
   <url>http://maven.apache.org</url>
   <packaging>pom</packaging>
   <modules>
+    <module>api-gateway</module>
     <module>todo-service</module>
     <module>subscriber-service</module>
     <module>discovery-server</module>
@@ -21,7 +22,7 @@
   </modules>
 
   <properties>
-    <spring-cloud.version>2021.0.2</spring-cloud.version>
+    <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
   </properties>
 
   <dependencyManagement>

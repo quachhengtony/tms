@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api/todoitems")
+@RequestMapping(path = "/todoitems")
 public class TodoItemsController {
 
     @Autowired
@@ -28,7 +28,7 @@ public class TodoItemsController {
     @GetMapping
     public ResponseEntity<List<TodoItemDto>> getAll() {
         try {
-            String response = restTemplate.getForObject("http://subscriber-service/api/subscribers/", String.class);
+            String response = restTemplate.getForObject("http://subscriber-service", String.class);
             System.out.println(response);
             if (!response.equalsIgnoreCase("subscribed")) {
                 return ResponseEntity.badRequest().build();
@@ -36,7 +36,7 @@ public class TodoItemsController {
                 return new ResponseEntity<>(todoItemService.getAll(), HttpStatus.OK);
             }
         } catch (Exception ex) {
-            return ResponseEntity.internalServerError().build();
+            return ResponseEntity.badRequest().build();
         }
     }
 
